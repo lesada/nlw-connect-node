@@ -9,6 +9,7 @@ import {
 	validatorCompiler,
 } from "fastify-type-provider-zod"
 import { env } from "./env"
+import { accessInviteLinkRoute } from "./routes/access-invite-link"
 import { healthRoute } from "./routes/health"
 import { subscribeRoute } from "./routes/subscribe"
 
@@ -36,8 +37,8 @@ app.register(fastifySwaggerUi, {
 })
 
 app.register(healthRoute)
-
 app.register(subscribeRoute)
+app.register(accessInviteLinkRoute)
 
 app.listen({ port: env.PORT }, err => {
 	if (err) {
