@@ -8,6 +8,7 @@ import {
   validatorCompiler,
   ZodTypeProvider,
 } from "fastify-type-provider-zod";
+import { env } from "./env";
 import { healthRoute } from "./routes/health";
 import { subscribeRoute } from "./routes/subscribe";
 
@@ -38,10 +39,10 @@ app.register(healthRoute);
 
 app.register(subscribeRoute);
 
-app.listen({ port: 3333 }, (err) => {
+app.listen({ port: env.PORT }, (err) => {
   if (err) {
     console.error(err);
     process.exit(1);
   }
-  console.log(`Server listening at http://localhost:3333 🚀`);
+  console.log(`Server listening at http://localhost:${env.PORT} 🚀`);
 });
