@@ -12,6 +12,7 @@ import { env } from "./env";
 import { accessInviteLinkRoute } from "./routes/access-invite-link";
 import { getSubscriberInviteClicksRoute } from "./routes/get-subscriber-invite-clicks";
 import { getSubscriberInviteCountRoute } from "./routes/get-subscriber-invite-count";
+import { getSubscriberRankingPositionRoute } from "./routes/get-subscriber-ranking-position";
 import { healthRoute } from "./routes/health";
 import { subscribeToEventRoute } from "./routes/subscribe-to-event";
 
@@ -43,6 +44,7 @@ app.register(subscribeToEventRoute);
 app.register(accessInviteLinkRoute);
 app.register(getSubscriberInviteClicksRoute);
 app.register(getSubscriberInviteCountRoute);
+app.register(getSubscriberRankingPositionRoute);
 
 app.listen({ port: env.PORT }, err => {
 	if (err) {
