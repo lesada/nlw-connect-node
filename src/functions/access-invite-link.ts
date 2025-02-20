@@ -1,11 +1,11 @@
-import { redis } from "../redis/client"
+import { redis } from "../redis/client";
 
 type accessInviteLinkParams = {
-	subscriberId: string
-}
+	subscriberId: string;
+};
 
 export async function accessInviteLink({
 	subscriberId,
 }: accessInviteLinkParams) {
-	await redis.hincrby("referral:access-count", subscriberId, 1)
+	await redis.hincrby("referral:access-clicks", subscriberId, 1);
 }
