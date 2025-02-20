@@ -7,8 +7,8 @@ type getSubscriberInviteClicksParams = {
 export async function getSubscriberInviteClicks({
 	subscriberId,
 }: getSubscriberInviteClicksParams) {
-	const count = await redis.hget("referral:access-count", subscriberId);
+	const clicks = await redis.hget("referral:access-clicks", subscriberId);
 	return {
-		count: count ? Number.parseInt(count) : 0,
+		clicks: clicks ? Number.parseInt(clicks) : 0,
 	};
 }
